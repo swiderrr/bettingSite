@@ -1,0 +1,34 @@
+body{
+    font-family: 'Lato'
+}
+
+h1 a, h2 a , h4{
+    color: #FFFFFF;
+}
+
+.page-header{
+    background-color: #0dbf9f;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.row p{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.container-xl{
+    padding-left: 40px;
+}
+
+.mb-3 .form-control{
+    width: 15%;
+}
+
+.page-header .btn{
+  text-align: right;
+  margin-right: 40px;
+  vertical-align: top;
+  background-color: #000F28;
+  font-size: 30px;
+}

@@ -1,0 +1,13 @@
+{% extends 'bet/base.html' %}
+{% block content %}
+<div class="row">
+    {% if user.is_authenticated %}
+    <div class="col-md-2">
+        <p>Tutaj będzie inputbox</p>
+    </div>
+    <div class="col-lg-10">
+        <p>Tutaj będzie tabela</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
