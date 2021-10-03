@@ -3,7 +3,7 @@ from django.utils import timezone
 
 
 class Bet(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.CharField(max_length=30)
     value = models.IntegerField()
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -13,3 +13,13 @@ class Bet(models.Model):
 
     def __int__(self):
         return self.value
+
+class Person(models.Model):
+    personName = models.CharField(max_length=30)
+    points = models.IntegerField(default=0)
+
+    def my_score(self):
+        return points
+
+    def __str__(self):
+        return self.personName

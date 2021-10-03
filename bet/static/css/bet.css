@@ -1,20 +1,37 @@
 body{
-    font-family: 'Lato'
+    font-family: 'Raleway', sans-serif;
 }
 
-h1 a, h2 a , h4{
+h4{
     color: #FFFFFF;
 }
 
+h1 a, h2 a, .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.score{
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    color: #17a2b8;
+}
+
 .page-header{
-    background-color: #0dbf9f;
+    background-color: #232323;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 10px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: #FFFFFF;
 }
 
 .row p{
     font-weight: bolder;
     font-size: 20px;
+}
+
+.row{
+    margin-top: 20px;
+    background-color: #e9ecef;
 }
 
 .container-xl{
@@ -27,8 +44,14 @@ h1 a, h2 a , h4{
 
 .page-header .btn{
   text-align: right;
+  font-size: 20px;
   margin-right: 40px;
   vertical-align: top;
-  background-color: #000F28;
-  font-size: 30px;
+}
+
+.login-box{
+    height: 300px;
+    padding: 20px;
+    font-size: 1.3em;
+    background-color: #7DCDE8;
 }

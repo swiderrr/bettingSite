@@ -8,6 +8,16 @@
     <div class="col-lg-10">
         <p>Tutaj będzie tabela</p>
     </div>
+    {% else %}
+        <div class="col-md-6">
+        <p><h2><br>Aplikacja webowa stworzona na potrzeby pracowniczej zabawy w obstawianie różnych wydarzeń.</h2><br>
+               Zasada zabawy jest prosta. Każdy chętny i zaproszony gracz otrzymuje od administratora dane do logowania.<br>
+               Po zalogowaniu pojawia się panel dodawania typu oraz wyświetlana jest aktualna tabela wyników.<br>
+               Możliwość podawania typów w konkretnym dniu jest ograniczona czasowo. Po wyznaczonej godzinie blokowana jest opcja wysłania swojego typu.<br>
+               O konkretnej godzinie sprawdzane są równiez wyniki. Osoba będąca najbliżej wytypowanej wartości otrzymuje punkt. Punkty zliaczane są na koncie każdego <br>
+               z graczy. Tabela z typami graczy jest widoczna dla wszystkich. Poniżej jej znajduje się druga tabela, która prezentuje stan punktowy.
+        </h2></p>
+        </div>
     {% endif %}
 </div>
 {% endblock %}

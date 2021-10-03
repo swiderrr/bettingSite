@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Bet
+from bet.models import Bet, Person
 
 
 admin.site.register(Bet)
+admin.site.register(Person)

@@ -1,12 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Bet
+from .models import Bet, Person
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 
 def home_page(request):
-    return render(request, 'bet/homepage.html', {})
+    if request.user.is_authenticated:
+        currentUser = request.user.username
+        persons = Person.objects.filter(personName=currentUser)
+        person = persons[0]
+        return render(request, 'bet/homepage.html', {'person': person})
+    else:
+        return render(request, 'bet/homepage.html', {})
 
 
 def login_user(request):

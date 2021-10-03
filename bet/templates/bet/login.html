@@ -2,16 +2,20 @@
 
 {% block content %}
 <form method="POST">
-    {% csrf_token %}
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Nazwa użytkownika</label>
-        <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+    <br><br>
+    <div class="login-box">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nazwa użytkownika</label>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Hasło</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hasło</label>
-        <input type="password" class="form-control" name="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-
+    </span>
 </form>
 {% endblock %}
+
