@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/bet.css' %}">
 </head>
     <body>
+
+
         <div class="page-header">
             <h1><a href="/">Bukmacherka PV Poland</a>
             {% if user.is_authenticated %}
@@ -23,17 +25,19 @@
             </h1>
             {% endif %}
         </div>
+
+
         <div class="container-xl">
             {% if messages %}
                 {% for message in messages %}
-            <div class="alert alert-warning" role="alert">
-                    {{ message }}
-            </div>
+
+            <div class="alert alert-warning" role="alert">{{ message }}</div>
+
                 {% endfor %}
             {% endif %}
-
             {% block content %}
             {% endblock %}
         </div>
+
     </body>
 </html>

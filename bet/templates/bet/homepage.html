@@ -2,12 +2,77 @@
 {% block content %}
 <div class="row">
     {% if user.is_authenticated %}
-    <div class="col-md-2">
-        <p>Tutaj będzie inputbox</p>
+
+
+    <div class="col-md-3">
+        {% if currentTime < 10 %}
+            <p>Podaj swój typ</p>
+            <form action="/" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <strong>{{ person.personName }}</strong>
+                </div>
+
+                <div class="form-group">
+                    <label for="typ">Twój typ:</label>
+                    <input type="number" class="form-control" id="typ" name="typ" placeholder="Podaj twój typ">
+                </div>
+                <button type="submit" class="btn btn-success">Wyślij</button>
+        {% endif %}
+                <p>Koniec czasu na podawanie typów. Zapraszamy już jutro od 00:00 do 9:59.</p>
+            </form>
     </div>
-    <div class="col-lg-10">
-        <p>Tutaj będzie tabela</p>
+
+
+
+    <div class="col-lg-5" name="standings">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Imię gracza</th>
+                    <th scope="col">Punkty</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in personObjs %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}
+                    <td>{{ person.personName }}</td>
+                    <td>{{ person.points }}</td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-5" name="todays-bets">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Data</th>
+                    {% for person in personObjs %}
+                        <th scope="col">{{ person.personName }}</th>
+                    {% endfor %}
+                    <th scope="col">Oficjalny wynik</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{ todaysDate }}</th>
+                    {% for person in personObjs %}
+                        <td>{{ person.bet }}</td>
+                    {% endfor %}
+                    <td>Tu pobranie wyniku</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
     {% else %}
         <div class="col-md-6">
         <p><h2><br>Aplikacja webowa stworzona na potrzeby pracowniczej zabawy w obstawianie różnych wydarzeń.</h2><br>

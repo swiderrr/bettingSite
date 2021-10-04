@@ -17,9 +17,13 @@ class Bet(models.Model):
 class Person(models.Model):
     personName = models.CharField(max_length=30)
     points = models.IntegerField(default=0)
+    bet = models.IntegerField(default=0)
 
     def my_score(self):
-        return points
+        return self.points
+
+    def my_bet(self):
+        return self.bet
 
     def __str__(self):
         return self.personName

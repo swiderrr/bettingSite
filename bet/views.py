@@ -3,14 +3,34 @@ from .models import Bet, Person
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from datetime import datetime
 
 
 def home_page(request):
+    todaysDate = datetime.now().strftime("%d-%m-%Y")
+    personObjs = Person.objects.all()
+    currentTime = datetime.now().strftime("%H")
     if request.user.is_authenticated:
         currentUser = request.user.username
-        persons = Person.objects.filter(personName=currentUser)
-        person = persons[0]
-        return render(request, 'bet/homepage.html', {'person': person})
+        currentPersonObj = Person.objects.filter(personName=currentUser)
+        person = currentPersonObj[0]
+        if request.method == "POST":
+            betValue = request.POST['typ']
+            person.bet = betValue
+            person.save()
+            return render(request, 'bet/homepage.html', {
+                'person': person,
+                'personObj': personObjs,
+                'todaysDate': todaysDate,
+                'currentTime': currentTime,
+            })
+        else:
+            return render(request, 'bet/homepage.html', {
+                'person': person,
+                'personObjs': personObjs,
+                'todaysDate': todaysDate,
+                'currentTime': currentTime,
+            })
     else:
         return render(request, 'bet/homepage.html', {})
 
