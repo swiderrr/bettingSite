@@ -54,3 +54,7 @@ h1 a, h2 a, .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page
     font-size: 1.3em;
     background-color: #7DCDE8;
 }
+
+td[name="best-bet"]{
+    background-color: #17a2b8;
+}

@@ -25,5 +25,8 @@ class Person(models.Model):
     def my_bet(self):
         return self.bet
 
+    def module(self):
+        self.bet
+
     def __str__(self):
         return self.personName

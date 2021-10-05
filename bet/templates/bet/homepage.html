@@ -5,7 +5,7 @@
 
 
     <div class="col-md-3">
-        {% if currentTime < 10 %}
+        {% if currentTime < 20 %}
             <p>Podaj swój typ</p>
             <form action="/" method="post">
                 {% csrf_token %}
@@ -19,8 +19,9 @@
                     <input type="number" class="form-control" id="typ" name="typ" placeholder="Podaj twój typ">
                 </div>
                 <button type="submit" class="btn btn-success">Wyślij</button>
-        {% endif %}
+        {% elif currentTime > 20 %}
                 <p>Koniec czasu na podawanie typów. Zapraszamy już jutro od 00:00 do 9:59.</p>
+        {% endif %}
             </form>
     </div>
 
@@ -65,9 +66,13 @@
                 <tr>
                     <th scope="row">{{ todaysDate }}</th>
                     {% for person in personObjs %}
-                        <td>{{ person.bet }}</td>
+                        {% if person.bet == bestBet %}
+                            <td name="best-bet">{{ person.bet }}</td>
+                        {% elif not person.bet == bestBet %}
+                            <td>{{ person.bet }}</td>
+                        {% endif %}
                     {% endfor %}
-                    <td>Tu pobranie wyniku</td>
+                    <td>{{ covidsToday }}</td>
                 </tr>
             </tbody>
         </table>
