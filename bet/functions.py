@@ -3,7 +3,7 @@ from .models import Person
 
 
 def covidCases():
-    covidResponse=requests.get("https://koronawirusunas.pl/")
+    covidResponse=requests.get("https://koronawirusunas.pl/", proxies={"http":"http://myproxy:3129"})
     soup = bs4.BeautifulSoup(covidResponse.text, 'html.parser')
     covidCases = soup.select('span[title="Zakażeni"]')[0].getText().replace(' ', '')
     return covidCases
