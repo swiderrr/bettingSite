@@ -1,5 +1,5 @@
 django==3.2.7
 APScheduler==3.8.0
 beautifulsoup4==4.9.3
-requests
-selenium
+requests==2.25.1
+selenium==3.141.0
