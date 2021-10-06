@@ -4,7 +4,7 @@ from .models import Person
 
 def covidCases():
     covidResponse=requests.get("https://koronawirusunas.pl/")
-    soup = bs4.BeautifulSoup(covidResponse.text, features="lxml")
+    soup = bs4.BeautifulSoup(covidResponse.text, 'html.parser')
     covidCases = soup.select('span[title="Zakażeni"]')[0].getText().replace(' ', '')
     return covidCases
 
